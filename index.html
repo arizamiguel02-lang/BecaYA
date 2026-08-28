@@ -643,6 +643,7 @@
 
 <script>
   (function(){
+    // --- LÓGICA DEL TEMA OSCURO ---
     const themeBtn = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme');
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -664,6 +665,44 @@
         themeBtn.classList.add('is-active');
       }
     });
+
+    // --- LÓGICA DEL PARLANTE (TEXT-TO-SPEECH) ---
+    const speakerBtn = document.getElementById('speakerToggle');
+
+    if ('speechSynthesis' in window) {
+      speakerBtn.addEventListener('click', function() {
+        // Si ya está hablando, detener la lectura al hacer clic de nuevo
+        if (window.speechSynthesis.speaking) {
+          window.speechSynthesis.cancel();
+          speakerBtn.classList.remove('is-active');
+          return;
+        }
+
+        // Texto que la voz leerá al usuario
+        const textoALeer = "Bienvenido a BecaYá. En esta página reunimos convocatorias y becas educativas de fundaciones, universidades y organizaciones para ayudarte a continuar tus estudios. Explora las opciones disponibles e ingresa directamente a las páginas oficiales de cada convocatoria.";
+
+        const mensaje = new SpeechSynthesisUtterance(textoALeer);
+        mensaje.lang = 'es-ES'; // Idioma en español
+        mensaje.rate = 0.95;    // Velocidad de lectura
+
+        // Activa visualmente el botón mientras habla
+        speakerBtn.classList.add('is-active');
+
+        // Al terminar de hablar, restaura el botón
+        mensaje.onend = function() {
+          speakerBtn.classList.remove('is-active');
+        };
+
+        mensaje.onerror = function() {
+          speakerBtn.classList.remove('is-active');
+        };
+
+        window.speechSynthesis.speak(mensaje);
+      });
+    } else {
+      // Si el navegador no lo soporta, oculta el botón
+      if (speakerBtn) speakerBtn.style.display = 'none';
+    }
   })();
 </script>
 
