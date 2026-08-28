@@ -96,14 +96,13 @@
     display: flex;
     align-items: center;
   }
-.logo img{
+  .logo img{
     height: 50px;
     width: auto;
     display: block;
     transition: filter 0.25s ease;
   }
-
-  /* Hace que el logo oscuro cambie a tono claro brillante en modo nocturno */
+  
   html[data-theme="dark"] .logo img{
     filter: brightness(0) invert(1);
   }
@@ -428,7 +427,8 @@
 
 <header>
   <div class="nav-inner">
-<div class="logo"><img src="logo.png" alt="BecaYá"></div>    <div class="nav-right">
+    <div class="logo"><img src="logo.png" alt="BecaYá"></div>
+    <div class="nav-right">
       <nav>
         <ul>
           <li><a href="#inicio">Inicio</a></li>
@@ -679,7 +679,6 @@
     const speakerBtn = document.getElementById('speakerToggle');
 
     if ('speechSynthesis' in window && speakerBtn) {
-      // Cargar voces del sistema previamente
       let voces = [];
       function cargarVoces() {
         voces = window.speechSynthesis.getVoices();
@@ -690,7 +689,6 @@
       }
 
       speakerBtn.addEventListener('click', function() {
-        // Cancelar si ya está hablando
         if (window.speechSynthesis.speaking) {
           window.speechSynthesis.cancel();
           speakerBtn.classList.remove('is-active');
@@ -701,7 +699,6 @@
 
         const mensaje = new SpeechSynthesisUtterance(texto);
         
-        // Seleccionar una voz en español disponible
         const vozEspanol = voces.find(v => v.lang.startsWith('es'));
         if (vozEspanol) {
           mensaje.voice = vozEspanol;
