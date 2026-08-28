@@ -650,45 +650,61 @@
     
     if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
       document.documentElement.setAttribute('data-theme', 'dark');
-      themeBtn.classList.add('is-active');
+      if (themeBtn) themeBtn.classList.add('is-active');
     }
 
-    themeBtn.addEventListener('click', function(){
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-        themeBtn.classList.remove('is-active');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        themeBtn.classList.add('is-active');
-      }
-    });
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function(){
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+          themeBtn.classList.remove('is-active');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          themeBtn.classList.add('is-active');
+        }
+      });
+    }
 
     // --- LÓGICA DEL PARLANTE (TEXT-TO-SPEECH) ---
     const speakerBtn = document.getElementById('speakerToggle');
 
-    if ('speechSynthesis' in window) {
+    if ('speechSynthesis' in window && speakerBtn) {
+      // Cargar voces del sistema previamente
+      let voces = [];
+      function cargarVoces() {
+        voces = window.speechSynthesis.getVoices();
+      }
+      cargarVoces();
+      if (speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = cargarVoces;
+      }
+
       speakerBtn.addEventListener('click', function() {
-        // Si ya está hablando, detener la lectura al hacer clic de nuevo
+        // Cancelar si ya está hablando
         if (window.speechSynthesis.speaking) {
           window.speechSynthesis.cancel();
           speakerBtn.classList.remove('is-active');
           return;
         }
 
-        // Texto que la voz leerá al usuario
-        const textoALeer = "Bienvenido a BecaYá. En esta página reunimos convocatorias y becas educativas de fundaciones, universidades y organizaciones para ayudarte a continuar tus estudios. Explora las opciones disponibles e ingresa directamente a las páginas oficiales de cada convocatoria.";
+        const texto = "Bienvenido a BecaYá. En esta página reunimos convocatorias y becas educativas de fundaciones, universidades y organizaciones para ayudarte a continuar tus estudios. Explora las opciones disponibles e ingresa directamente a las páginas oficiales de cada convocatoria.";
 
-        const mensaje = new SpeechSynthesisUtterance(textoALeer);
-        mensaje.lang = 'es-ES'; // Idioma en español
-        mensaje.rate = 0.95;    // Velocidad de lectura
+        const mensaje = new SpeechSynthesisUtterance(texto);
+        
+        // Seleccionar una voz en español disponible
+        const vozEspanol = voces.find(v => v.lang.startsWith('es'));
+        if (vozEspanol) {
+          mensaje.voice = vozEspanol;
+        }
+        
+        mensaje.lang = 'es-ES';
+        mensaje.rate = 0.95;
 
-        // Activa visualmente el botón mientras habla
         speakerBtn.classList.add('is-active');
 
-        // Al terminar de hablar, restaura el botón
         mensaje.onend = function() {
           speakerBtn.classList.remove('is-active');
         };
@@ -699,9 +715,8 @@
 
         window.speechSynthesis.speak(mensaje);
       });
-    } else {
-      // Si el navegador no lo soporta, oculta el botón
-      if (speakerBtn) speakerBtn.style.display = 'none';
+    } else if (speakerBtn) {
+      speakerBtn.style.display = 'none';
     }
   })();
 </script>
