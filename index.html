@@ -299,16 +299,19 @@
   .beca-meta{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
     border-top: 1px dashed var(--line);
     padding-top: 14px;
     font-size: 0.82rem;
   }
-  .beca-deadline{
+  .deadline, .beca-deadline{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: var(--ink-soft);
-    margin: -2px 0 12px;
+    margin: 0;
+    text-align: left;
   }
   .beca-meta .cta{
     font-weight: 600;
