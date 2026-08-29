@@ -234,7 +234,7 @@
     text-decoration: none;
     border: 1px solid transparent;
     cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, color 0.2s ease;
   }
  .btn-primary{
     background: var(--ink);
@@ -292,11 +292,11 @@
     font-size: 1.4rem;
   }
 
- /* ---------- SECTION HEADERS ---------- */
+ /* ---------- SECTION HEADERS & FILTERS ---------- */
  section{ padding: 70px 24px; }
  .section-inner{ max-width: 1100px; margin: 0 auto; }
  .section-head{
-    margin-bottom: 42px;
+    margin-bottom: 30px;
     max-width: 60ch;
   }
  .section-head h2{
@@ -304,9 +304,37 @@
     margin-top: 10px;
   }
 
+ .filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+ .filter-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+ .filter-btn:hover {
+    border-color: var(--gold);
+    color: var(--ink);
+  }
+ .filter-btn.active {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+  }
+
  #becas{ background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
- /* ---------- BECA CARDS (envelope) ---------- */
+ /* ---------- BECA CARDS ---------- */
  .beca-grid{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -315,18 +343,23 @@
 
  .beca-card{
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-decoration: none;
     background: var(--white);
     border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 26px 22px 22px;
+    padding: 26px 22px 18px;
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
- .beca-card:hover, .beca-card:focus-visible{
+ .beca-card:hover{
     transform: translateY(-4px);
     box-shadow: var(--shadow);
+  }
+ .beca-card.is-hidden {
+    display: none !important;
   }
 
  /* envelope flap */
@@ -361,6 +394,31 @@
 
  .beca-card .top-space{ height: 30px; }
 
+ .beca-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+ .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+ .badge-nac { background: #E3F2FD; color: #0D47A1; }
+ .badge-int { background: #E8F5E9; color: #1B5E20; }
+ .badge-pre { background: #FFF3E0; color: #E65100; }
+ .badge-pos { background: #F3E5F5; color: #4A148C; }
+
+ html[data-theme="dark"] .badge-nac { background: #1C2D42; color: #90CAF9; }
+ html[data-theme="dark"] .badge-int { background: #1B3322; color: #A5D6A7; }
+ html[data-theme="dark"] .badge-pre { background: #382512; color: #FFCC80; }
+ html[data-theme="dark"] .badge-pos { background: #321A38; color: #CE93D8; }
+
  .beca-org{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
@@ -376,16 +434,13 @@
     margin-bottom: 10px;
   }
 
- .beca-card p{
+ .beca-card p.beca-desc{
     font-size: 0.93rem;
     color: var(--ink-soft);
-    margin: 0 0 20px;
+    margin: 0 0 16px;
   }
 
  .beca-meta{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-top: 1px dashed var(--line);
     padding-top: 14px;
     font-size: 0.82rem;
@@ -395,6 +450,12 @@
     font-size: 0.72rem;
     color: var(--ink-soft);
     margin: -2px 0 12px;
+  }
+ .beca-actions-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
   }
  .beca-meta .cta{
     font-weight: 600;
@@ -406,6 +467,26 @@
  .beca-card:hover .cta{ color: var(--green); }
  .beca-meta .cta svg{ transition: transform 0.2s ease; }
  .beca-card:hover .cta svg{ transform: translateX(3px); }
+
+ .share-btn {
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+ .share-btn:hover {
+    background: #25D366;
+    border-color: #25D366;
+    color: #FFFFFF;
+  }
 
  /* ---------- ABOUT SECTION ---------- */
  .about-section {
@@ -549,6 +630,7 @@
     nav ul{ gap: 16px; }
     nav a{ font-size: 0.82rem; }
     .about-card { padding: 24px; }
+    .filter-bar { overflow-x: auto; padding-bottom: 8px; }
   }
 </style>
 </head>
@@ -612,161 +694,313 @@
         <p style="color:var(--ink-soft); margin-top:10px;">Haz clic en cualquier beca para ir a la página oficial de la convocatoria.</p>
       </div>
 
-      <div class="beca-grid">
+      <!-- BARRA DE FILTROS RÁPIDOS -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="pregrado">Pregrado</button>
+        <button class="filter-btn" data-filter="posgrado">Posgrado</button>
+        <button class="filter-btn" data-filter="nacionales">Nacionales</button>
+        <button class="filter-btn" data-filter="internacionales">Internacionales</button>
+      </div>
 
-        <a class="beca-card" href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-diferentes-areas-universidad-europea-espana" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇪🇸 60%</span>
-          <div class="top-space"></div>
-          <p class="beca-org">ICETEX · Universidad Europea (España)</p>
-          <h3>Becas para maestrías virtuales</h3>
-          <p>60% de descuento en la matrícula de maestrías oficiales 100% online, para profesionales colombianos con título de pregrado.</p>
-          <p class="beca-deadline">📅 Cierra 14 sep 2026</p>
-          <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
-        </a>
+      <div class="beca-grid" id="becaGrid">
 
-        <a class="beca-card" href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-de-la-universidad-la-rioja-unir-de-espana" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇪🇸 60%</span>
-          <div class="top-space"></div>
-          <p class="beca-org">ICETEX · UNIR (España)</p>
-          <h3>Maestrías virtuales UNIR</h3>
-          <p>60% de la matrícula para maestrías oficiales virtuales en español, con inicio en septiembre de 2026 y duración de 12 meses.</p>
-          <p class="beca-deadline">📅 Cierra 17 sep 2026</p>
+        <!-- Beca 1 -->
+        <div class="beca-card" data-tags="posgrado internacionales">
+          <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-diferentes-areas-universidad-europea-espana" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇪🇸 60%</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pos">Posgrado</span>
+              <span class="badge badge-int">Internacional</span>
+            </div>
+            <p class="beca-org">ICETEX · Universidad Europea (España)</p>
+            <h3>Becas para maestrías virtuales</h3>
+            <p class="beca-desc">60% de descuento en la matrícula de maestrías oficiales 100% online, para profesionales colombianos con título de pregrado.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Cierra 14 sep 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-diferentes-areas-universidad-europea-espana" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Becas para maestrías virtuales (Universidad Europea)" data-url="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-diferentes-areas-universidad-europea-espana" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://web.icetex.gov.co/es/-/2026-becas-del-100-doctorado-en-politica-publica-en-el-instituto-tecnologico-y-de-estudios-superiores-de-monterrey" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇲🇽 100%</span>
-          <div class="top-space"></div>
-          <p class="beca-org">ICETEX · Tec de Monterrey (México)</p>
-          <h3>Doctorado en Política Pública</h3>
-          <p>Cobertura del 100% de la matrícula para cursar el doctorado presencial, dentro de la alianza ICETEX–Tec de Monterrey.</p>
-          <p class="beca-deadline">📅 Cierra 2 oct 2026</p>
+        <!-- Beca 2 -->
+        <div class="beca-card" data-tags="posgrado internacionales">
+          <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-de-la-universidad-la-rioja-unir-de-espana" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇪🇸 60%</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pos">Posgrado</span>
+              <span class="badge badge-int">Internacional</span>
+            </div>
+            <p class="beca-org">ICETEX · UNIR (España)</p>
+            <h3>Maestrías virtuales UNIR</h3>
+            <p class="beca-desc">60% de la matrícula para maestrías oficiales virtuales en español, con inicio en septiembre de 2026 y duración de 12 meses.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Cierra 17 sep 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-de-la-universidad-la-rioja-unir-de-espana" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Maestrías virtuales UNIR" data-url="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-de-la-universidad-la-rioja-unir-de-espana" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://web.icetex.gov.co/es/-/becas-maestria-chile-agcid-2027" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇨🇱 100%</span>
-          <div class="top-space"></div>
-          <p class="beca-org">ICETEX · AGCID (Chile)</p>
-          <h3>Maestrías en universidades chilenas</h3>
-          <p>Cobertura total de matrícula, arancel y titulación para maestrías acreditadas en Chile, hasta por 24 meses, iniciando entre marzo y septiembre de 2027.</p>
-          <p class="beca-deadline">📅 Cierra 9 oct 2026</p>
+        <!-- Beca 3 -->
+        <div class="beca-card" data-tags="posgrado internacionales">
+          <a href="https://web.icetex.gov.co/es/-/2026-becas-del-100-doctorado-en-politica-publica-en-el-instituto-tecnologico-y-de-estudios-superiores-de-monterrey" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇲🇽 100%</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pos">Posgrado</span>
+              <span class="badge badge-int">Internacional</span>
+            </div>
+            <p class="beca-org">ICETEX · Tec de Monterrey (México)</p>
+            <h3>Doctorado en Política Pública</h3>
+            <p class="beca-desc">Cobertura del 100% de la matrícula para cursar el doctorado presencial, dentro de la alianza ICETEX–Tec de Monterrey.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Cierra 2 oct 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://web.icetex.gov.co/es/-/2026-becas-del-100-doctorado-en-politica-publica-en-el-instituto-tecnologico-y-de-estudios-superiores-de-monterrey" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Doctorado en Política Pública (Tec de Monterrey)" data-url="https://web.icetex.gov.co/es/-/2026-becas-del-100-doctorado-en-politica-publica-en-el-instituto-tecnologico-y-de-estudios-superiores-de-monterrey" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://web.icetex.gov.co/es/-/descuentos-maestrias-university-salford" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇬🇧 £5.000</span>
-          <div class="top-space"></div>
-          <p class="beca-org">ICETEX · University of Salford (Reino Unido)</p>
-          <h3>Descuentos en maestrías</h3>
-          <p>Reducciones de £5.000 en la matrícula para diez estudiantes colombianos, y una beca completa para quien obtenga el mayor puntaje. Inicio en septiembre de 2027.</p>
-          <p class="beca-deadline">📅 Cierra 26 feb 2027</p>
+        <!-- Beca 4 -->
+        <div class="beca-card" data-tags="posgrado internacionales">
+          <a href="https://web.icetex.gov.co/es/-/becas-maestria-chile-agcid-2027" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇨🇱 100%</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pos">Posgrado</span>
+              <span class="badge badge-int">Internacional</span>
+            </div>
+            <p class="beca-org">ICETEX · AGCID (Chile)</p>
+            <h3>Maestrías en universidades chilenas</h3>
+            <p class="beca-desc">Cobertura total de matrícula, arancel y titulación para maestrías acreditadas en Chile, hasta por 24 meses.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Cierra 9 oct 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://web.icetex.gov.co/es/-/becas-maestria-chile-agcid-2027" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Maestrías en Chile (AGCID)" data-url="https://web.icetex.gov.co/es/-/becas-maestria-chile-agcid-2027" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://web.icetex.gov.co/calendario-de-pregrado" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇨🇴 Crédito</span>
-          <div class="top-space"></div>
-          <p class="beca-org">ICETEX (Colombia)</p>
-          <h3>Crédito educativo de pregrado</h3>
-          <p>Líneas de crédito condonable para pregrado en Colombia: Plan de Apoyo y Bienestar, Talento STEM y Ciencias de la Salud, entre otras. Convocatoria 2026-2.</p>
-          <p class="beca-deadline">📅 Cierra 15 oct 2026</p>
+        <!-- Beca 5 -->
+        <div class="beca-card" data-tags="posgrado internacionales">
+          <a href="https://web.icetex.gov.co/es/-/descuentos-maestrias-university-salford" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇬🇧 £5.000</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pos">Posgrado</span>
+              <span class="badge badge-int">Internacional</span>
+            </div>
+            <p class="beca-org">ICETEX · University of Salford (Reino Unido)</p>
+            <h3>Descuentos en maestrías</h3>
+            <p class="beca-desc">Reducciones de £5.000 en la matrícula para diez estudiantes colombianos, y una beca completa para el mayor puntaje.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Cierra 26 feb 2027</p>
+            <div class="beca-actions-row">
+              <a href="https://web.icetex.gov.co/es/-/descuentos-maestrias-university-salford" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Descuentos en maestrías Salford (Reino Unido)" data-url="https://web.icetex.gov.co/es/-/descuentos-maestrias-university-salford" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://aspirantes.uniandes.edu.co/es/pregrado/servicios-financieros" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🎓 95%</span>
-          <div class="top-space"></div>
-          <p class="beca-org">Universidad de los Andes</p>
-          <h3>Beca Quiero Estudiar</h3>
-          <p>Cubre hasta el 95% de la matrícula de cualquier pregrado para bachilleres colombianos de 16 a 21 años con excelente desempeño académico y necesidad económica. Se activa al ser admitido.</p>
-          <p class="beca-deadline">📅 Inscripciones abiertas hasta 7 dic 2026</p>
+        <!-- Beca 6 -->
+        <div class="beca-card" data-tags="pregrado nacionales">
+          <a href="https://web.icetex.gov.co/calendario-de-pregrado" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇨🇴 Crédito</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pre">Pregrado</span>
+              <span class="badge badge-nac">Nacional</span>
+            </div>
+            <p class="beca-org">ICETEX (Colombia)</p>
+            <h3>Crédito educativo de pregrado</h3>
+            <p class="beca-desc">Líneas de crédito condonable para pregrado en Colombia: Plan de Apoyo y Bienestar, Talento STEM y Ciencias de la Salud.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Cierra 15 oct 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://web.icetex.gov.co/calendario-de-pregrado" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Créditos de pregrado ICETEX" data-url="https://web.icetex.gov.co/calendario-de-pregrado" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://www.mineducacion.gov.co/portal/micrositios-superior/Becas-SER/Banco-de-Programas-de-Becas/" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇨🇴 Variable</span>
-          <div class="top-space"></div>
-          <p class="beca-org">Ministerio de Educación Nacional</p>
-          <h3>Becas SER</h3>
-          <p>Conecta a donantes con estudiantes de estratos 1, 2 y 3 admitidos o matriculados en cerca de 80 universidades aliadas. Programa permanente: se pide directo en la institución de interés.</p>
-          <p class="beca-deadline">📅 Sin fecha única · consulta tu universidad</p>
+        <!-- Beca 7 -->
+        <div class="beca-card" data-tags="pregrado nacionales">
+          <a href="https://aspirantes.uniandes.edu.co/es/pregrado/servicios-financieros" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🎓 95%</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pre">Pregrado</span>
+              <span class="badge badge-nac">Nacional</span>
+            </div>
+            <p class="beca-org">Universidad de los Andes</p>
+            <h3>Beca Quiero Estudiar</h3>
+            <p class="beca-desc">Cubre hasta el 95% de la matrícula de cualquier pregrado para bachilleres colombianos de 16 a 21 años con excelente desempeño.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Inscripciones hasta 7 dic 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://aspirantes.uniandes.edu.co/es/pregrado/servicios-financieros" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Beca Quiero Estudiar (UniAndes)" data-url="https://aspirantes.uniandes.edu.co/es/pregrado/servicios-financieros" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://www.chevening.org/scholarship/colombia/" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇬🇧 100%</span>
-          <div class="top-space"></div>
-          <p class="beca-org">Chevening · Gobierno del Reino Unido</p>
-          <h3>Beca Chevening</h3>
-          <p>Financiación integral para cursar cualquier maestría de un año en una universidad del Reino Unido: matrícula, manutención, tiquetes y visa, para profesionales con potencial de liderazgo.</p>
-          <p class="beca-deadline">📅 Cierra 6 oct 2026</p>
+        <!-- Beca 8 -->
+        <div class="beca-card" data-tags="pregrado posgrado nacionales">
+          <a href="https://www.mineducacion.gov.co/portal/micrositios-superior/Becas-SER/Banco-de-Programas-de-Becas/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇨🇴 Variable</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pre">Pregrado</span>
+              <span class="badge badge-nac">Nacional</span>
+            </div>
+            <p class="beca-org">Ministerio de Educación Nacional</p>
+            <h3>Becas SER</h3>
+            <p class="beca-desc">Conecta a donantes con estudiantes de estratos 1, 2 y 3 admitidos en cerca de 80 universidades aliadas en Colombia.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Consulta en tu universidad</p>
+            <div class="beca-actions-row">
+              <a href="https://www.mineducacion.gov.co/portal/micrositios-superior/Becas-SER/Banco-de-Programas-de-Becas/" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Becas SER (Ministerio de Educación)" data-url="https://www.mineducacion.gov.co/portal/micrositios-superior/Becas-SER/Banco-de-Programas-de-Becas/" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://fulbright.edu.co/programas/para-colombianos/" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇺🇸 Completa</span>
-          <div class="top-space"></div>
-          <p class="beca-org">Fulbright Colombia</p>
-          <h3>Visiting Scholar / Student Researcher</h3>
-          <p>Estancias de investigación de 4 a 10 meses en Estados Unidos para doctorandos, investigadores y docentes colombianos, en cualquier área del conocimiento.</p>
-          <p class="beca-deadline">📅 Cierra 12 oct 2026</p>
+        <!-- Beca 9 -->
+        <div class="beca-card" data-tags="posgrado internacionales">
+          <a href="https://www.chevening.org/scholarship/colombia/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇬🇧 100%</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pos">Posgrado</span>
+              <span class="badge badge-int">Internacional</span>
+            </div>
+            <p class="beca-org">Chevening · Gobierno del Reino Unido</p>
+            <h3>Beca Chevening</h3>
+            <p class="beca-desc">Financiación integral para cursar cualquier maestría de un año en el Reino Unido: matrícula, manutención y tiquetes.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Cierra 6 oct 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://www.chevening.org/scholarship/colombia/" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Beca Chevening (Reino Unido)" data-url="https://www.chevening.org/scholarship/colombia/" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="beca-card" href="https://www.daad.co/es/" target="_blank" rel="noopener noreferrer">
-          <span class="stamp">🇩🇪 Completa</span>
-          <div class="top-space"></div>
-          <p class="beca-org">DAAD · Universidad de Friburgo (Alemania)</p>
-          <h3>Maestría en Gobernanza Ambiental</h3>
-          <p>Beca completa para cursar la Maestría en Gobernanza Ambiental (MSc Environmental Governance), dirigida a profesionales con al menos 2 años de experiencia y desempeño académico sobresaliente.</p>
-          <p class="beca-deadline">📅 Cierra 15 oct 2026</p>
+        <!-- Beca 10 -->
+        <div class="beca-card" data-tags="posgrado internacionales">
+          <a href="https://fulbright.edu.co/programas/para-colombianos/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇺🇸 Completa</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pos">Posgrado</span>
+              <span class="badge badge-int">Internacional</span>
+            </div>
+            <p class="beca-org">Fulbright Colombia</p>
+            <h3>Visiting Scholar / Student Researcher</h3>
+            <p class="beca-desc">Estancias de investigación de 4 a 10 meses en Estados Unidos para doctorandos, investigadores y docentes colombianos.</p>
+          </a>
           <div class="beca-meta">
-            <span class="cta">Ver convocatoria
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
+            <p class="beca-deadline">📅 Cierra 12 oct 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://fulbright.edu.co/programas/para-colombianos/" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Beca Fulbright Colombia (EE.UU.)" data-url="https://fulbright.edu.co/programas/para-colombianos/" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
           </div>
-        </a>
+        </div>
+
+        <!-- Beca 11 -->
+        <div class="beca-card" data-tags="posgrado internacionales">
+          <a href="https://www.daad.co/es/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+            <span class="stamp">🇩🇪 Completa</span>
+            <div class="top-space"></div>
+            <div class="beca-badges">
+              <span class="badge badge-pos">Posgrado</span>
+              <span class="badge badge-int">Internacional</span>
+            </div>
+            <p class="beca-org">DAAD · Universidad de Friburgo (Alemania)</p>
+            <h3>Maestría en Gobernanza Ambiental</h3>
+            <p class="beca-desc">Beca completa para cursar la Maestría en Gobernanza Ambiental (MSc Environmental Governance) en Alemania.</p>
+          </a>
+          <div class="beca-meta">
+            <p class="beca-deadline">📅 Cierra 15 oct 2026</p>
+            <div class="beca-actions-row">
+              <a href="https://www.daad.co/es/" target="_blank" rel="noopener noreferrer" class="cta">
+                Ver convocatoria
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="share-btn" data-title="Maestría en Gobernanza Ambiental DAAD (Alemania)" data-url="https://www.daad.co/es/" title="Compartir por WhatsApp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -929,6 +1163,45 @@
         if (e.target === modal) closeModal();
       });
     }
+
+    // --- LÓGICA DE FILTROS RÁPIDOS ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const becaCards = document.querySelectorAll('.beca-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        becaCards.forEach(card => {
+          const tags = card.getAttribute('data-tags') || '';
+          if (filter === 'all' || tags.includes(filter)) {
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+
+    // --- LÓGICA DE COMPARTIR BECA POR WHATSAPP ---
+    const shareBtns = document.querySelectorAll('.share-btn');
+    shareBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const title = btn.getAttribute('data-title');
+        const url = btn.getAttribute('data-url');
+        const text = `¡Mira esta oportunidad educativa en BecaYá! 🎓\n\n*${title}*\n${url}`;
+        
+        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+
   })();
 </script>
 
