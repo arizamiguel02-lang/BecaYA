@@ -446,6 +446,80 @@
     margin-bottom: 10px !important;
   }
 
+ /* ---------- MODAL ESTRUCTURA ---------- */
+ .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(14, 42, 82, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+ .modal-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+ .modal-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    max-width: 480px;
+    width: 100%;
+    padding: 32px 28px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+ .modal-overlay.is-visible .modal-card {
+    transform: translateY(0);
+  }
+ .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+ .modal-close:hover {
+    color: var(--ink);
+  }
+ .modal-card h2 {
+    font-size: 1.6rem;
+    margin: 6px 0 12px 0;
+  }
+ .modal-steps {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 24px 0;
+  }
+ .modal-steps li {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+    padding-left: 8px;
+    border-left: 3px solid var(--gold);
+  }
+ .modal-steps strong {
+    color: var(--ink);
+  }
+ .modal-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
  /* ---------- NOTE / FOOTER ---------- */
  .note-box{
     max-width: 1100px;
@@ -722,6 +796,24 @@
     </div>
   </section>
 
+  <!-- MODAL ¿CÓMO FUNCIONA? -->
+  <div id="welcomeModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-labelledby="modalTitle">
+      <button id="closeModalBtn" class="modal-close" aria-label="Cerrar ventana">&times;</button>
+      <span class="eyebrow">GUÍA RÁPIDA</span>
+      <h2 id="modalTitle">¿Cómo funciona BecaYá?</h2>
+      <p>Te ayudamos a encontrar oportunidades para continuar tus estudios en 3 sencillos pasos:</p>
+      
+      <ul class="modal-steps">
+        <li><strong>1. Explora:</strong> Revisa el catálogo de becas y convocatorias activas.</li>
+        <li><strong>2. Selecciona:</strong> Haz clic en la tarjeta que sea de tu interés.</li>
+        <li><strong>3. Postúlate:</strong> Te redirigiremos de forma directa a la página oficial de la entidad ofertante para que inicies tu proceso.</li>
+      </ul>
+
+      <button id="gotItBtn" class="btn btn-primary modal-btn">¡Entendido, ver becas!</button>
+    </div>
+  </div>
+
 </main>
 
 <footer>
@@ -801,6 +893,39 @@
       });
     } else if (speakerBtn) {
       speakerBtn.style.display = 'none';
+    }
+
+    // --- LÓGICA DEL MODAL DE BIENVENIDA ---
+    const modal = document.getElementById('welcomeModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const gotItBtn = document.getElementById('gotItBtn');
+
+    function openModal() {
+      if (modal) {
+        modal.classList.add('is-visible');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+    }
+
+    function closeModal() {
+      if (modal) {
+        modal.classList.remove('is-visible');
+        modal.setAttribute('aria-hidden', 'true');
+        localStorage.setItem('hasSeenWelcomeModal', 'true');
+      }
+    }
+
+    if (!localStorage.getItem('hasSeenWelcomeModal')) {
+      setTimeout(openModal, 500);
+    }
+
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (gotItBtn) gotItBtn.addEventListener('click', closeModal);
+
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
     }
   })();
 </script>
