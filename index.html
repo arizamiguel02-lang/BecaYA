@@ -20,7 +20,6 @@
 <meta name="twitter:image" content="https://arizamiguel02-lang.github.io/BecaYA/logo.png">
 <link rel="shortcut icon" href="favicon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -29,7 +28,7 @@
     --paper-2: #E9EFF6;
     --ink: #0E2A52;
     --ink-soft: #3D5A85;
-    --gold: #B35900; /* <--- Tono más oscuro y legible para fondo claro */
+    --gold: #B35900;
     --gold-bright: #FFC145;
     --green: #2AA0DB;
     --line: #D3DCE8;
@@ -38,12 +37,12 @@
     --shadow: 0 10px 30px -12px rgba(14,42,82,0.30);
   }
 
-  html[data-theme="dark"]{
+ html[data-theme="dark"]{
     --paper: #0F1826;
     --paper-2: #172133;
     --ink: #F2F5FA;
     --ink-soft: #AEBCD6;
-    --gold: #FFC145; /* <--- Mantiene el amarillo brillante para fondo oscuro */
+    --gold: #FFC145;
     --gold-bright: #FFD57A;
     --green: #5AC0EE;
     --line: #2C3A54;
@@ -52,19 +51,19 @@
     --shadow: 0 10px 30px -12px rgba(0,0,0,0.55);
   }
 
-  html{ transition: background-color 0.25s ease; }
-  body{ transition: background-color 0.25s ease, color 0.25s ease; }
+ html{ transition: background-color 0.25s ease; }
+ body{ transition: background-color 0.25s ease, color 0.25s ease; }
 
-  *{ box-sizing: border-box; }
+ *{ box-sizing: border-box; }
 
-  html{ scroll-behavior: smooth; }
+ html{ scroll-behavior: smooth; }
 
-  @media (prefers-reduced-motion: reduce){
+ @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior: auto; }
     *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   }
 
-  body{
+ body{
     margin: 0;
     background: var(--paper);
     color: var(--ink);
@@ -72,16 +71,16 @@
     line-height: 1.55;
   }
 
-  a{ color: inherit; }
+ a{ color: inherit; }
 
-  h1, h2, h3{
+ h1, h2, h3{
     font-family: 'Fraunces', serif;
     font-weight: 600;
     margin: 0;
     color: var(--ink);
   }
 
-  .eyebrow{
+ .eyebrow{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.14em;
@@ -89,8 +88,8 @@
     color: var(--gold);
   }
 
-  /* ---------- NAV ---------- */
-  header{
+ /* ---------- NAV ---------- */
+ header{
     position: sticky;
     top: 0;
     z-index: 50;
@@ -98,7 +97,7 @@
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--line);
   }
-  .nav-inner{
+ .nav-inner{
     max-width: 1100px;
     margin: 0 auto;
     padding: 18px 24px;
@@ -108,35 +107,35 @@
     gap: 16px;
     flex-wrap: wrap;
   }
-  .logo{
+ .logo{
     display: flex;
     align-items: center;
   }
-  .logo img{
+ .logo img{
     height: 50px;
     width: auto;
     display: block;
     transition: filter 0.25s ease;
   }
   
-  html[data-theme="dark"] .logo img{
+ html[data-theme="dark"] .logo img{
     filter: brightness(0) invert(1);
   }
 
-  .nav-right{
+ .nav-right{
     display: flex;
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
   }
-  nav ul{
+ nav ul{
     list-style: none;
     display: flex;
     gap: 28px;
     margin: 0;
     padding: 0;
   }
-  nav a{
+ nav a{
     text-decoration: none;
     font-size: 0.92rem;
     font-weight: 500;
@@ -145,23 +144,23 @@
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s, color 0.2s;
   }
-  nav a:hover, nav a:focus-visible{ color: var(--ink); border-color: var(--gold); }
+ nav a:hover, nav a:focus-visible{ color: var(--ink); border-color: var(--gold); }
 
-  a:focus-visible, button:focus-visible{
+ a:focus-visible, button:focus-visible{
     outline: 2px solid var(--green);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
-  /* ---------- ACCESSIBILITY TOOLBAR ---------- */
-  .a11y-bar{
+ /* ---------- ACCESSIBILITY TOOLBAR ---------- */
+ .a11y-bar{
     display: flex;
     align-items: center;
     gap: 8px;
     padding-left: 16px;
     border-left: 1px solid var(--line);
   }
-  .a11y-btn{
+ .a11y-btn{
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -176,24 +175,24 @@
     padding: 0;
     position: relative;
   }
-  .a11y-btn:hover{ background: var(--paper-2); transform: translateY(-1px); }
-  .a11y-btn svg{ width: 18px; height: 18px; }
-  .a11y-btn.is-active{
+ .a11y-btn:hover{ background: var(--paper-2); transform: translateY(-1px); }
+ .a11y-btn svg{ width: 18px; height: 18px; }
+ .a11y-btn.is-active{
     background: var(--gold);
     border-color: var(--gold);
     color: var(--ink);
   }
-  html[data-theme="dark"] .a11y-btn.is-active{ color: #1B2740; }
-  .a11y-btn .icon-alt{ display: none; }
-  .a11y-btn.is-active .icon-main{ display: none; }
-  .a11y-btn.is-active .icon-alt{ display: inline-flex; }
+ html[data-theme="dark"] .a11y-btn.is-active{ color: #1B2740; }
+ .a11y-btn .icon-alt{ display: none; }
+ .a11y-btn.is-active .icon-main{ display: none; }
+ .a11y-btn.is-active .icon-alt{ display: inline-flex; }
 
-  @media (max-width: 780px){
+ @media (max-width: 780px){
     .a11y-bar{ border-left: none; padding-left: 0; }
   }
 
-  /* ---------- HERO ---------- */
-  .hero{
+ /* ---------- HERO ---------- */
+ .hero{
     max-width: 1100px;
     margin: 0 auto;
     padding: 90px 24px 70px;
@@ -202,28 +201,28 @@
     gap: 48px;
     align-items: center;
   }
-  .hero h1{
+ .hero h1{
     font-size: clamp(2.1rem, 4vw, 3.2rem);
     line-height: 1.12;
     letter-spacing: -0.01em;
   }
-  .hero h1 em{
+ .hero h1 em{
     font-style: italic;
     color: var(--green);
   }
-  .hero p.lede{
+ .hero p.lede{
     margin-top: 20px;
     font-size: 1.08rem;
     color: var(--ink-soft);
     max-width: 46ch;
   }
-  .hero-actions{
+ .hero-actions{
     margin-top: 32px;
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
   }
-  .btn{
+ .btn{
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -237,26 +236,26 @@
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .btn-primary{
+ .btn-primary{
     background: var(--ink);
     color: var(--white);
   }
-  .btn-primary:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
-  .btn-ghost{
+ .btn-primary:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+ .btn-ghost{
     border-color: var(--ink);
     color: var(--ink);
     background: transparent;
   }
-  .btn-ghost:hover{ background: var(--ink); color: var(--white); }
+ .btn-ghost:hover{ background: var(--ink); color: var(--white); }
 
-  /* ---------- HERO LETTER GRAPHIC ---------- */
-  .letter-art{
+ /* ---------- HERO LETTER GRAPHIC ---------- */
+ .letter-art{
     position: relative;
     aspect-ratio: 4/5;
     max-width: 320px;
     margin: 0 auto;
   }
-  .letter-art .card{
+ .letter-art .card{
     position: absolute;
     inset: 0;
     background: var(--white);
@@ -266,20 +265,20 @@
     padding: 26px;
     transform: rotate(-4deg);
   }
-  .letter-art .card.back{
+ .letter-art .card.back{
     transform: rotate(5deg) translate(14px, 10px);
     background: var(--paper-2);
     z-index: 0;
   }
-  .letter-art .card.front{ z-index: 1; }
-  .letter-art .front .line{
+ .letter-art .card.front{ z-index: 1; }
+ .letter-art .front .line{
     height: 8px;
     background: var(--line);
     border-radius: 2px;
     margin-bottom: 12px;
   }
-  .letter-art .front .line.short{ width: 55%; }
-  .letter-art .front .seal-big{
+ .letter-art .front .line.short{ width: 55%; }
+ .letter-art .front .seal-big{
     width: 54px; height: 54px;
     border-radius: 50%;
     background: var(--gold-bright);
@@ -293,28 +292,28 @@
     font-size: 1.4rem;
   }
 
-  /* ---------- SECTION HEADERS ---------- */
-  section{ padding: 70px 24px; }
-  .section-inner{ max-width: 1100px; margin: 0 auto; }
-  .section-head{
+ /* ---------- SECTION HEADERS ---------- */
+ section{ padding: 70px 24px; }
+ .section-inner{ max-width: 1100px; margin: 0 auto; }
+ .section-head{
     margin-bottom: 42px;
     max-width: 60ch;
   }
-  .section-head h2{
+ .section-head h2{
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     margin-top: 10px;
   }
 
-  #becas{ background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+ #becas{ background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
-  /* ---------- BECA CARDS (envelope) ---------- */
-  .beca-grid{
+ /* ---------- BECA CARDS (envelope) ---------- */
+ .beca-grid{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 26px;
   }
 
-  .beca-card{
+ .beca-card{
     position: relative;
     display: block;
     text-decoration: none;
@@ -325,13 +324,13 @@
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .beca-card:hover, .beca-card:focus-visible{
+ .beca-card:hover, .beca-card:focus-visible{
     transform: translateY(-4px);
     box-shadow: var(--shadow);
   }
 
-  /* envelope flap */
-  .beca-card::before{
+ /* envelope flap */
+ .beca-card::before{
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
@@ -344,9 +343,9 @@
     transform-origin: top;
     transition: transform 0.25s ease;
   }
-  .beca-card:hover::before{ transform: scaleY(0.7); }
+ .beca-card:hover::before{ transform: scaleY(0.7); }
 
-  .stamp{
+ .stamp{
     position: absolute;
     top: 14px; right: 16px;
     background: var(--gold);
@@ -360,9 +359,9 @@
     box-shadow: 0 2px 0 rgba(0,0,0,0.08);
   }
 
-  .beca-card .top-space{ height: 30px; }
+ .beca-card .top-space{ height: 30px; }
 
-  .beca-org{
+ .beca-org{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.06em;
@@ -371,19 +370,19 @@
     margin-bottom: 8px;
   }
 
-  .beca-card h3{
+ .beca-card h3{
     font-size: 1.25rem;
     line-height: 1.3;
     margin-bottom: 10px;
   }
 
-  .beca-card p{
+ .beca-card p{
     font-size: 0.93rem;
     color: var(--ink-soft);
     margin: 0 0 20px;
   }
 
-  .beca-meta{
+ .beca-meta{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -391,30 +390,69 @@
     padding-top: 14px;
     font-size: 0.82rem;
   }
-  .beca-deadline{
+ .beca-deadline{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: var(--ink-soft);
     margin: -2px 0 12px;
   }
-  .beca-meta .cta{
+ .beca-meta .cta{
     font-weight: 600;
     color: var(--ink);
     display: inline-flex;
     align-items: center;
     gap: 6px;
   }
-  .beca-card:hover .cta{ color: var(--green); }
-  .beca-meta .cta svg{ transition: transform 0.2s ease; }
-  .beca-card:hover .cta svg{ transform: translateX(3px); }
+ .beca-card:hover .cta{ color: var(--green); }
+ .beca-meta .cta svg{ transition: transform 0.2s ease; }
+ .beca-card:hover .cta svg{ transform: translateX(3px); }
 
-  /* ---------- NOTE / FOOTER ---------- */
-  .note-box{
+ /* ---------- ABOUT SECTION ---------- */
+ .about-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 24px;
+  }
+ .about-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 36px;
+    box-shadow: var(--shadow);
+  }
+ .about-card h2 {
+    font-size: 1.8rem;
+    margin: 8px 0 16px 0;
+  }
+ .about-card p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin-bottom: 14px;
+  }
+ .creator-box {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+  }
+ .creator-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+ .creator-role {
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 10px !important;
+  }
+
+ /* ---------- NOTE / FOOTER ---------- */
+ .note-box{
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 24px 10px;
   }
-  .note{
+ .note{
     font-size: 0.85rem;
     color: var(--ink-soft);
     background: var(--white);
@@ -424,18 +462,19 @@
     margin-top: 10px;
   }
 
-  footer{
+ footer{
     padding: 40px 24px;
     text-align: center;
     color: var(--ink-soft);
     font-size: 0.85rem;
   }
 
-  @media (max-width: 780px){
+ @media (max-width: 780px){
     .hero{ grid-template-columns: 1fr; padding-top: 50px; }
     .letter-art{ order: -1; max-width: 240px; }
     nav ul{ gap: 16px; }
     nav a{ font-size: 0.82rem; }
+    .about-card { padding: 24px; }
   }
 </style>
 </head>
@@ -449,6 +488,7 @@
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#becas">Becas</a></li>
+          <li><a href="#quienes-somos">Sobre nosotros</a></li>
         </ul>
       </nav>
       <div class="a11y-bar">
@@ -476,7 +516,7 @@
       <p class="lede">Reunimos becas de fundaciones, universidades y organizaciones para que encuentres la que abre tu próxima puerta. Elige una y te llevamos directo a la página de quien la ofrece.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#becas">Ver becas disponibles</a>
-        <a class="btn btn-ghost" href="#becas">¿Cómo funciona?</a>
+        <a class="btn btn-ghost" href="#quienes-somos">Sobre nosotros</a>
       </div>
     </div>
     <div class="letter-art" aria-hidden="true">
@@ -654,6 +694,30 @@
           </div>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN SOBRE NOSOTROS -->
+  <section class="about-section" id="quienes-somos">
+    <div class="about-card">
+      <span class="eyebrow">INICIATIVA Y PROPÓSITO</span>
+      <h2>Sobre nosotros</h2>
+      <p>
+        <strong>BecaYá</strong> nace como una iniciativa ciudadana y comunitaria orientada a democratizar el acceso a la información sobre oportunidades educativas en Colombia.
+      </p>
+      <p>
+        Conscientes de que muchos jóvenes pierden la oportunidad de acceder a la educación superior por falta de difusión de las convocatorias, este directorio digital centraliza en un solo lugar las becas, apoyos y convenios ofertados por fundaciones, universidades y entidades públicas y privadas.
+      </p>
+
+      <div class="creator-box">
+        <div class="creator-info">
+          <h3>Liderazgo e iniciativa</h3>
+          <p class="creator-role">Miguel Ariza — Economista & Consejero Local de Juventud de Barranquilla por el Partido MIRA</p>
+          <p>
+            Este proyecto fue concebido e impulsado con el objetivo de brindar herramientas reales de transformación social, desarrollo profesional y acceso a la educación superior para las juventudes del territorio.
+          </p>
+        </div>
       </div>
     </div>
   </section>
