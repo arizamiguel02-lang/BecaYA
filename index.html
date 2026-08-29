@@ -49,12 +49,10 @@
     --shadow: 0 10px 30px -12px rgba(0,0,0,0.55);
   }
 
- html{ transition: background-color 0.25s ease; }
+ html{ transition: background-color 0.25s ease; scroll-behavior: smooth; }
  body{ transition: background-color 0.25s ease, color 0.25s ease; }
 
  *{ box-sizing: border-box; }
-
- html{ scroll-behavior: smooth; }
 
  @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior: auto; }
@@ -141,6 +139,7 @@
     padding-bottom: 3px;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s, color 0.2s;
+    touch-action: manipulation;
   }
  nav a:hover, nav a:focus-visible{ color: var(--ink); border-color: var(--gold); }
 
@@ -172,6 +171,7 @@
     transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
     padding: 0;
     position: relative;
+    touch-action: manipulation;
   }
  .a11y-btn:hover{ background: var(--paper-2); transform: translateY(-1px); }
  .a11y-btn svg{ width: 18px; height: 18px; }
@@ -233,6 +233,7 @@
     border: 1px solid transparent;
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, color 0.2s ease;
+    touch-action: manipulation;
   }
  .btn-primary{
     background: var(--ink);
@@ -319,6 +320,7 @@
     color: var(--ink-soft);
     cursor: pointer;
     transition: all 0.2s ease;
+    touch-action: manipulation;
   }
  .filter-btn:hover {
     border-color: var(--gold);
@@ -479,6 +481,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 0;
+    touch-action: manipulation;
   }
  .share-btn:hover {
     background: #25D366;
@@ -525,31 +528,22 @@
     margin-bottom: 10px !important;
   }
 
- /* ---------- MODAL ESTRUCTURA (OPTIMIZADO PARA MÓVILES) ---------- */
+ /* ---------- MODAL ESTRUCTURA ---------- */
  .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
     background: rgba(14, 42, 82, 0.75);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     z-index: 9999;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 16px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
-    overflow-y: auto;
   }
  .modal-overlay.is-visible {
-    opacity: 1;
-    visibility: visible;
+    display: flex !important;
   }
  .modal-card {
     background: var(--paper);
@@ -562,12 +556,7 @@
     padding: 28px 24px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.35);
     position: relative;
-    transform: translateY(15px);
-    transition: transform 0.25s ease;
     -webkit-overflow-scrolling: touch;
-  }
- .modal-overlay.is-visible .modal-card {
-    transform: translateY(0);
   }
  .modal-close {
     position: absolute;
@@ -611,21 +600,6 @@
   }
 
  /* ---------- NOTE / FOOTER ---------- */
- .note-box{
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px 10px;
-  }
- .note{
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    background: var(--white);
-    border: 1px dashed var(--gold);
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-top: 10px;
-  }
-
  footer{
     padding: 40px 24px;
     text-align: center;
@@ -681,7 +655,7 @@
       <p class="lede">Reunimos becas de fundaciones, universidades y organizaciones para que encuentres la que abre tu próxima puerta. Elige una y te llevamos directo a la página de quien la ofrece.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#becas">Ver becas disponibles</a>
-        <button id="howItWorksBtn" class="btn btn-ghost">¿Cómo funciona?</button>
+        <button id="howItWorksBtn" class="btn btn-ghost" type="button">¿Cómo funciona?</button>
       </div>
     </div>
     <div class="letter-art" aria-hidden="true">
@@ -704,11 +678,11 @@
       </div>
 
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Todas</button>
-        <button class="filter-btn" data-filter="pregrado">Pregrado</button>
-        <button class="filter-btn" data-filter="posgrado">Posgrado</button>
-        <button class="filter-btn" data-filter="nacionales">Nacionales</button>
-        <button class="filter-btn" data-filter="internacionales">Internacionales</button>
+        <button class="filter-btn active" data-filter="all" type="button">Todas</button>
+        <button class="filter-btn" data-filter="pregrado" type="button">Pregrado</button>
+        <button class="filter-btn" data-filter="posgrado" type="button">Posgrado</button>
+        <button class="filter-btn" data-filter="nacionales" type="button">Nacionales</button>
+        <button class="filter-btn" data-filter="internacionales" type="button">Internacionales</button>
       </div>
 
       <div class="beca-grid" id="becaGrid">
@@ -732,7 +706,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Becas para maestrías virtuales (Universidad Europea)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Becas para maestrías virtuales (Universidad Europea)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -758,7 +732,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Maestrías virtuales UNIR" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Maestrías virtuales UNIR" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -784,7 +758,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Doctorado en Política Pública (Tec de Monterrey)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Doctorado en Política Pública (Tec de Monterrey)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -810,7 +784,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Maestrías en Chile (AGCID)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Maestrías en Chile (AGCID)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -836,7 +810,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Descuentos en maestrías Salford (Reino Unido)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Descuentos en maestrías Salford (Reino Unido)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -862,7 +836,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Créditos de pregrado ICETEX" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Créditos de pregrado ICETEX" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -888,7 +862,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Beca Quiero Estudiar (UniAndes)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Beca Quiero Estudiar (UniAndes)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -914,7 +888,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Becas SER (Ministerio de Educación)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Becas SER (Ministerio de Educación)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -940,7 +914,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Beca Chevening (Reino Unido)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Beca Chevening (Reino Unido)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -966,7 +940,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Beca Fulbright Colombia (EE.UU.)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Beca Fulbright Colombia (EE.UU.)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -992,7 +966,7 @@
                 Ver convocatoria
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
-              <button class="share-btn" data-title="Maestría en Gobernanza Ambiental DAAD (Alemania)" title="Compartir por WhatsApp">
+              <button class="share-btn" type="button" data-title="Maestría en Gobernanza Ambiental DAAD (Alemania)" title="Compartir por WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               </button>
             </div>
@@ -1028,7 +1002,7 @@
 
   <div id="welcomeModal" class="modal-overlay" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-labelledby="modalTitle">
-      <button id="closeModalBtn" class="modal-close" aria-label="Cerrar ventana">&times;</button>
+      <button id="closeModalBtn" class="modal-close" type="button" aria-label="Cerrar ventana">&times;</button>
       <span class="eyebrow">GUÍA RÁPIDA</span>
       <h2 id="modalTitle">¿Cómo funciona BecaYá?</h2>
       <p>Te ayudamos a encontrar oportunidades para continuar tus estudios en 3 sencillos pasos:</p>
@@ -1039,7 +1013,7 @@
         <li><strong>3. Postúlate:</strong> Te redirigiremos de forma directa a la página oficial de la entidad ofertante para que inicies tu proceso.</li>
       </ul>
 
-      <button id="gotItBtn" class="btn btn-primary modal-btn">¡Entendido, ver becas!</button>
+      <button id="gotItBtn" class="btn btn-primary modal-btn" type="button">¡Entendido, ver becas!</button>
     </div>
   </div>
 
@@ -1050,7 +1024,7 @@
 </footer>
 
 <script>
-  (function(){
+  document.addEventListener('DOMContentLoaded', function(){
     // --- LÓGICA DEL TEMA OSCURO ---
     const themeBtn = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme');
@@ -1099,24 +1073,16 @@
         const texto = "Bienvenido a BecaYá. En esta página reunimos convocatorias y becas educativas de fundaciones, universidades y organizaciones para ayudarte a continuar tus estudios. Explora las opciones disponibles e ingresa directamente a las páginas oficiales de cada convocatoria.";
 
         const mensaje = new SpeechSynthesisUtterance(texto);
-        
         const vozEspanol = voces.find(v => v.lang.startsWith('es'));
-        if (vozEspanol) {
-          mensaje.voice = vozEspanol;
-        }
+        if (vozEspanol) mensaje.voice = vozEspanol;
         
         mensaje.lang = 'es-ES';
         mensaje.rate = 0.95;
 
         speakerBtn.classList.add('is-active');
 
-        mensaje.onend = function() {
-          speakerBtn.classList.remove('is-active');
-        };
-
-        mensaje.onerror = function() {
-          speakerBtn.classList.remove('is-active');
-        };
+        mensaje.onend = function() { speakerBtn.classList.remove('is-active'); };
+        mensaje.onerror = function() { speakerBtn.classList.remove('is-active'); };
       
         window.speechSynthesis.speak(mensaje);
       });
@@ -1124,18 +1090,13 @@
       speakerBtn.style.display = 'none';
     }
 
-    // --- LÓGICA DEL MODAL DE BIENVENIDA (SIN BLOQUEOS EN MÓVIL) ---
+    // --- LÓGICA DEL MODAL DE BIENVENIDA (SOLO MANUAL) ---
     const modal = document.getElementById('welcomeModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const gotItBtn = document.getElementById('gotItBtn');
     const howItWorksBtn = document.getElementById('howItWorksBtn');
-    let autoOpenTimer = null;
 
-    function openModal(e) {
-      if (e) {
-        e.preventDefault();
-        if (autoOpenTimer) clearTimeout(autoOpenTimer);
-      }
+    function openModal() {
       if (modal) {
         modal.classList.add('is-visible');
         modal.setAttribute('aria-hidden', 'false');
@@ -1143,33 +1104,38 @@
       }
     }
 
-    function closeModal(e) {
-      if (e) e.preventDefault();
+    function closeModal() {
       if (modal) {
         modal.classList.remove('is-visible');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        localStorage.setItem('hasSeenWelcomeModal', 'true');
       }
     }
 
-    if (!localStorage.getItem('hasSeenWelcomeModal')) {
-      autoOpenTimer = setTimeout(openModal, 700);
-    }
-
-    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if (gotItBtn) gotItBtn.addEventListener('click', closeModal);
-    
     if (howItWorksBtn) {
       howItWorksBtn.addEventListener('click', function(e) {
-        openModal(e);
-        this.blur();
+        e.preventDefault();
+        openModal();
+      });
+    }
+
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeModal();
+      });
+    }
+
+    if (gotItBtn) {
+      gotItBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeModal();
       });
     }
 
     if (modal) {
       modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeModal(e);
+        if (e.target === modal) closeModal();
       });
     }
 
@@ -1178,11 +1144,12 @@
     const becaCards = document.querySelectorAll('.beca-card');
 
     filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
         filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        this.classList.add('active');
 
-        const filter = btn.getAttribute('data-filter');
+        const filter = this.getAttribute('data-filter');
 
         becaCards.forEach(card => {
           const tags = card.getAttribute('data-tags') || '';
@@ -1198,11 +1165,11 @@
     // --- LÓGICA DE COMPARTIR BECA POR WHATSAPP (CON TINYURL) ---
     const shareBtns = document.querySelectorAll('.share-btn');
     shareBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        const title = btn.getAttribute('data-title');
+        const title = this.getAttribute('data-title');
         const becayaUrl = 'https://tinyurl.com/BecaYA';
         
         const text = `¡Mira esta oportunidad educativa en BecaYá! 🎓\n\n*${title}*\n\nEncuéntrala aquí: ${becayaUrl}`;
@@ -1211,8 +1178,7 @@
         window.open(whatsappUrl, '_blank');
       });
     });
-
-  })();
+  });
 </script>
 
 </body>
