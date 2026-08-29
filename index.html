@@ -1186,7 +1186,7 @@
       });
     });
 
-    // --- LÓGICA DE COMPARTIR BECA POR WHATSAPP (RUTEO A BECAYÁ) ---
+    // --- LÓGICA DE COMPARTIR BECA POR WHATSAPP (CON TINYURL) ---
     const shareBtns = document.querySelectorAll('.share-btn');
     shareBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -1194,7 +1194,8 @@
         e.stopPropagation();
         
         const title = btn.getAttribute('data-title');
-        const becayaUrl = 'https://arizamiguel02-lang.github.io/BecaYA/#becas';
+        // Enlace acortado personalizado de TinyURL
+        const becayaUrl = 'https://tinyurl.com/BecaYA';
         
         const text = `¡Mira esta oportunidad educativa en BecaYá! 🎓\n\n*${title}*\n\nEncuéntrala aquí: ${becayaUrl}`;
         
