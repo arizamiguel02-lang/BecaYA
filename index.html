@@ -4,29 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BecaYá — Becas educativas</title>
-<link rel="icon" type="image/png" href="favicon.png?v=5">
- <meta property="og:type" content="website">
-<meta property="og:url" content="https://arizamiguel02-lang.github.io/BecaYA/">
-<meta property="og:title" content="BecaYá — Convocatorias y Becas Educativas">
-<meta property="og:description" content="Reunimos becas de fundaciones, universidades y organizaciones para ayudarte a continuar tus estudios. Encuentra tu oportunidad aquí.">
-<meta property="og:image" content="https://arizamiguel02-lang.github.io/BecaYA/favicon.png?v=5">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://arizamiguel02-lang.github.io/BecaYA/">
-<meta name="twitter:title" content="BecaYá — Convocatorias y Becas Educativas">
-<meta name="twitter:description" content="Reunimos becas de fundaciones, universidades y organizaciones para ayudarte a continuar tus estudios.">
-<meta name="twitter:image" content="https://arizamiguel02-lang.github.io/BecaYA/logo.png">
-<link rel="shortcut icon" href="favicon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
- :root{
+  :root{
     --paper: #F5F7FA;
     --paper-2: #E9EFF6;
     --ink: #0E2A52;
     --ink-soft: #3D5A85;
-    --gold: #B35900;
+    --gold: #F2A81D;
     --gold-bright: #FFC145;
     --green: #2AA0DB;
     --line: #D3DCE8;
@@ -35,31 +22,16 @@
     --shadow: 0 10px 30px -12px rgba(14,42,82,0.30);
   }
 
- html[data-theme="dark"]{
-    --paper: #0F1826;
-    --paper-2: #172133;
-    --ink: #F2F5FA;
-    --ink-soft: #AEBCD6;
-    --gold: #FFC145;
-    --gold-bright: #FFD57A;
-    --green: #5AC0EE;
-    --line: #2C3A54;
-    --white: #1B2740;
-    --header-bg: rgba(15,24,38,0.88);
-    --shadow: 0 10px 30px -12px rgba(0,0,0,0.55);
-  }
+  *{ box-sizing: border-box; }
 
- html{ transition: background-color 0.25s ease; scroll-behavior: smooth; }
- body{ transition: background-color 0.25s ease, color 0.25s ease; }
+  html{ scroll-behavior: smooth; }
 
- *{ box-sizing: border-box; }
-
- @media (prefers-reduced-motion: reduce){
+  @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior: auto; }
     *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   }
 
- body{
+  body{
     margin: 0;
     background: var(--paper);
     color: var(--ink);
@@ -67,16 +39,16 @@
     line-height: 1.55;
   }
 
- a{ color: inherit; }
+  a{ color: inherit; }
 
- h1, h2, h3{
+  h1, h2, h3{
     font-family: 'Fraunces', serif;
     font-weight: 600;
     margin: 0;
     color: var(--ink);
   }
 
- .eyebrow{
+  .eyebrow{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.14em;
@@ -84,8 +56,8 @@
     color: var(--gold);
   }
 
- /* ---------- NAV ---------- */
- header{
+  /* ---------- NAV ---------- */
+  header{
     position: sticky;
     top: 0;
     z-index: 50;
@@ -93,7 +65,7 @@
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--line);
   }
- .nav-inner{
+  .nav-inner{
     max-width: 1100px;
     margin: 0 auto;
     padding: 18px 24px;
@@ -103,35 +75,23 @@
     gap: 16px;
     flex-wrap: wrap;
   }
- .logo{
+  .logo{
     display: flex;
     align-items: center;
   }
- .logo img{
+  .logo img{
     height: 50px;
     width: auto;
     display: block;
-    transition: filter 0.25s ease;
   }
-  
- html[data-theme="dark"] .logo img{
-    filter: brightness(0) invert(1);
-  }
-
- .nav-right{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
- nav ul{
+  nav ul{
     list-style: none;
     display: flex;
     gap: 28px;
     margin: 0;
     padding: 0;
   }
- nav a{
+  nav a{
     text-decoration: none;
     font-size: 0.92rem;
     font-weight: 500;
@@ -139,58 +99,17 @@
     padding-bottom: 3px;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s, color 0.2s;
-    touch-action: manipulation;
   }
- nav a:hover, nav a:focus-visible{ color: var(--ink); border-color: var(--gold); }
+  nav a:hover, nav a:focus-visible{ color: var(--ink); border-color: var(--gold); }
 
- a:focus-visible, button:focus-visible{
+  a:focus-visible, button:focus-visible{
     outline: 2px solid var(--green);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
- /* ---------- ACCESSIBILITY TOOLBAR ---------- */
- .a11y-bar{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-left: 16px;
-    border-left: 1px solid var(--line);
-  }
- .a11y-btn{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: var(--white);
-    color: var(--ink);
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
-    padding: 0;
-    position: relative;
-    touch-action: manipulation;
-  }
- .a11y-btn:hover{ background: var(--paper-2); transform: translateY(-1px); }
- .a11y-btn svg{ width: 18px; height: 18px; }
- .a11y-btn.is-active{
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--ink);
-  }
- html[data-theme="dark"] .a11y-btn.is-active{ color: #1B2740; }
- .a11y-btn .icon-alt{ display: none; }
- .a11y-btn.is-active .icon-main{ display: none; }
- .a11y-btn.is-active .icon-alt{ display: inline-flex; }
-
- @media (max-width: 780px){
-    .a11y-bar{ border-left: none; padding-left: 0; }
-  }
-
- /* ---------- HERO ---------- */
- .hero{
+  /* ---------- HERO ---------- */
+  .hero{
     max-width: 1100px;
     margin: 0 auto;
     padding: 90px 24px 70px;
@@ -199,28 +118,28 @@
     gap: 48px;
     align-items: center;
   }
- .hero h1{
+  .hero h1{
     font-size: clamp(2.1rem, 4vw, 3.2rem);
     line-height: 1.12;
     letter-spacing: -0.01em;
   }
- .hero h1 em{
+  .hero h1 em{
     font-style: italic;
     color: var(--green);
   }
- .hero p.lede{
+  .hero p.lede{
     margin-top: 20px;
     font-size: 1.08rem;
     color: var(--ink-soft);
     max-width: 46ch;
   }
- .hero-actions{
+  .hero-actions{
     margin-top: 32px;
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
   }
- .btn{
+  .btn{
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -232,29 +151,28 @@
     text-decoration: none;
     border: 1px solid transparent;
     cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, color 0.2s ease;
-    touch-action: manipulation;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
- .btn-primary{
+  .btn-primary{
     background: var(--ink);
     color: var(--white);
   }
- .btn-primary:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
- .btn-ghost{
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+  .btn-ghost{
     border-color: var(--ink);
     color: var(--ink);
     background: transparent;
   }
- .btn-ghost:hover{ background: var(--ink); color: var(--white); }
+  .btn-ghost:hover{ background: var(--ink); color: var(--white); }
 
- /* ---------- HERO LETTER GRAPHIC ---------- */
- .letter-art{
+  /* ---------- HERO LETTER GRAPHIC ---------- */
+  .letter-art{
     position: relative;
     aspect-ratio: 4/5;
     max-width: 320px;
     margin: 0 auto;
   }
- .letter-art .card{
+  .letter-art .card{
     position: absolute;
     inset: 0;
     background: var(--white);
@@ -264,20 +182,20 @@
     padding: 26px;
     transform: rotate(-4deg);
   }
- .letter-art .card.back{
+  .letter-art .card.back{
     transform: rotate(5deg) translate(14px, 10px);
     background: var(--paper-2);
     z-index: 0;
   }
- .letter-art .card.front{ z-index: 1; }
- .letter-art .front .line{
+  .letter-art .card.front{ z-index: 1; }
+  .letter-art .front .line{
     height: 8px;
     background: var(--line);
     border-radius: 2px;
     margin-bottom: 12px;
   }
- .letter-art .front .line.short{ width: 55%; }
- .letter-art .front .seal-big{
+  .letter-art .front .line.short{ width: 55%; }
+  .letter-art .front .seal-big{
     width: 54px; height: 54px;
     border-radius: 50%;
     background: var(--gold-bright);
@@ -291,79 +209,45 @@
     font-size: 1.4rem;
   }
 
- /* ---------- SECTION HEADERS & FILTERS ---------- */
- section{ padding: 70px 24px; }
- .section-inner{ max-width: 1100px; margin: 0 auto; }
- .section-head{
-    margin-bottom: 30px;
+  /* ---------- SECTION HEADERS ---------- */
+  section{ padding: 70px 24px; }
+  .section-inner{ max-width: 1100px; margin: 0 auto; }
+  .section-head{
+    margin-bottom: 42px;
     max-width: 60ch;
   }
- .section-head h2{
+  .section-head h2{
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     margin-top: 10px;
   }
 
- .filter-bar {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 32px;
-  }
- .filter-btn {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: var(--white);
-    color: var(--ink-soft);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    touch-action: manipulation;
-  }
- .filter-btn:hover {
-    border-color: var(--gold);
-    color: var(--ink);
-  }
- .filter-btn.active {
-    background: var(--ink);
-    color: var(--white);
-    border-color: var(--ink);
-  }
+  #becas{ background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
- #becas{ background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-
- /* ---------- BECA CARDS ---------- */
- .beca-grid{
+  /* ---------- BECA CARDS (envelope) ---------- */
+  .beca-grid{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 26px;
   }
 
- .beca-card{
+  .beca-card{
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: block;
     text-decoration: none;
     background: var(--white);
     border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 26px 22px 18px;
+    padding: 26px 22px 22px;
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
- .beca-card:hover{
+  .beca-card:hover, .beca-card:focus-visible{
     transform: translateY(-4px);
     box-shadow: var(--shadow);
   }
- .beca-card.is-hidden {
-    display: none !important;
-  }
 
- /* envelope flap */
- .beca-card::before{
+  /* envelope flap */
+  .beca-card::before{
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
@@ -376,9 +260,9 @@
     transform-origin: top;
     transition: transform 0.25s ease;
   }
- .beca-card:hover::before{ transform: scaleY(0.7); }
+  .beca-card:hover::before{ transform: scaleY(0.7); }
 
- .stamp{
+  .stamp{
     position: absolute;
     top: 14px; right: 16px;
     background: var(--gold);
@@ -392,34 +276,9 @@
     box-shadow: 0 2px 0 rgba(0,0,0,0.08);
   }
 
- .beca-card .top-space{ height: 30px; }
+  .beca-card .top-space{ height: 30px; }
 
- .beca-badges {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-  }
- .badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    font-weight: 600;
-    padding: 2px 7px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
- .badge-nac { background: #E3F2FD; color: #0D47A1; }
- .badge-int { background: #E8F5E9; color: #1B5E20; }
- .badge-pre { background: #FFF3E0; color: #E65100; }
- .badge-pos { background: #F3E5F5; color: #4A148C; }
-
- html[data-theme="dark"] .badge-nac { background: #1C2D42; color: #90CAF9; }
- html[data-theme="dark"] .badge-int { background: #1B3322; color: #A5D6A7; }
- html[data-theme="dark"] .badge-pre { background: #382512; color: #FFCC80; }
- html[data-theme="dark"] .badge-pos { background: #321A38; color: #CE93D8; }
-
- .beca-org{
+  .beca-org{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.06em;
@@ -428,192 +287,71 @@
     margin-bottom: 8px;
   }
 
- .beca-card h3{
+  .beca-card h3{
     font-size: 1.25rem;
     line-height: 1.3;
     margin-bottom: 10px;
   }
 
- .beca-card p.beca-desc{
+  .beca-card p{
     font-size: 0.93rem;
     color: var(--ink-soft);
-    margin: 0 0 16px;
+    margin: 0 0 20px;
   }
 
- .beca-meta{
+  .beca-meta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-top: 1px dashed var(--line);
     padding-top: 14px;
     font-size: 0.82rem;
   }
- .beca-deadline{
+  .beca-deadline{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: var(--ink-soft);
     margin: -2px 0 12px;
   }
- .beca-actions-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-  }
- .beca-meta .cta{
+  .beca-meta .cta{
     font-weight: 600;
     color: var(--ink);
     display: inline-flex;
     align-items: center;
     gap: 6px;
   }
- .beca-card:hover .cta{ color: var(--green); }
- .beca-meta .cta svg{ transition: transform 0.2s ease; }
- .beca-card:hover .cta svg{ transform: translateX(3px); }
+  .beca-card:hover .cta{ color: var(--green); }
+  .beca-meta .cta svg{ transition: transform 0.2s ease; }
+  .beca-card:hover .cta svg{ transform: translateX(3px); }
 
- .share-btn {
-    background: transparent;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink-soft);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    padding: 0;
-    touch-action: manipulation;
-  }
- .share-btn:hover {
-    background: #25D366;
-    border-color: #25D366;
-    color: #FFFFFF;
-  }
-
- /* ---------- ABOUT SECTION ---------- */
- .about-section {
+  /* ---------- NOTE / FOOTER ---------- */
+  .note-box{
     max-width: 1100px;
     margin: 0 auto;
-    padding: 70px 24px;
+    padding: 0 24px 10px;
   }
- .about-card {
+  .note{
+    font-size: 0.85rem;
+    color: var(--ink-soft);
     background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 36px;
-    box-shadow: var(--shadow);
-  }
- .about-card h2 {
-    font-size: 1.8rem;
-    margin: 8px 0 16px 0;
-  }
- .about-card p {
-    color: var(--ink-soft);
-    font-size: 0.98rem;
-    margin-bottom: 14px;
-  }
- .creator-box {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px dashed var(--line);
-  }
- .creator-info h3 {
-    font-size: 1.15rem;
-    margin-bottom: 4px;
-  }
- .creator-role {
-    color: var(--gold);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.82rem;
-    font-weight: 600;
-    margin-bottom: 10px !important;
+    border: 1px dashed var(--gold);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 10px;
   }
 
- /* ---------- MODAL ESTRUCTURA ---------- */
- .modal-overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(14, 42, 82, 0.75);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    z-index: 9999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-  }
- .modal-overlay.is-visible {
-    display: flex !important;
-  }
- .modal-card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    max-width: 460px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 28px 24px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-  }
- .modal-close {
-    position: absolute;
-    top: 12px;
-    right: 14px;
-    background: transparent;
-    border: none;
-    font-size: 1.8rem;
-    color: var(--ink-soft);
-    cursor: pointer;
-    line-height: 1;
-    padding: 6px 10px;
-    border-radius: 50%;
-    z-index: 10;
-  }
- .modal-close:hover {
-    color: var(--ink);
-  }
- .modal-card h2 {
-    font-size: 1.5rem;
-    margin: 6px 0 12px 0;
-  }
- .modal-steps {
-    list-style: none;
-    padding: 0;
-    margin: 18px 0 24px 0;
-  }
- .modal-steps li {
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-    margin-bottom: 12px;
-    padding-left: 10px;
-    border-left: 3px solid var(--gold);
-  }
- .modal-steps strong {
-    color: var(--ink);
-  }
- .modal-btn {
-    width: 100%;
-    justify-content: center;
-  }
-
- /* ---------- NOTE / FOOTER ---------- */
- footer{
+  footer{
     padding: 40px 24px;
     text-align: center;
     color: var(--ink-soft);
     font-size: 0.85rem;
   }
 
- @media (max-width: 780px){
+  @media (max-width: 780px){
     .hero{ grid-template-columns: 1fr; padding-top: 50px; }
     .letter-art{ order: -1; max-width: 240px; }
     nav ul{ gap: 16px; }
     nav a{ font-size: 0.82rem; }
-    .about-card { padding: 24px; }
-    .filter-bar { overflow-x: auto; padding-bottom: 8px; }
   }
 </style>
 </head>
@@ -621,50 +359,37 @@
 
 <header>
   <div class="nav-inner">
-    <div class="logo"><img src="logo.png" alt="BecaYá"></div>
-    <div class="nav-right">
-      <nav>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#becas">Becas</a></li>
-          <li><a href="#quienes-somos">Sobre nosotros</a></li>
-        </ul>
-      </nav>
-      <div class="a11y-bar">
-        <button id="speakerToggle" class="a11y-btn" aria-label="Escuchar resumen de la página" title="Escuchar contenido">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-          </svg>
-        </button>
-
-        <button id="themeToggle" class="a11y-btn" aria-label="Cambiar tema claro / oscuro" title="Cambiar modo oscuro">
-          <svg class="icon-main" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-          <svg class="icon-alt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        </button>
-      </div>
-    </div>
+    <div class="logo"><img src="data:image/png;base64,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" alt="BecaYá Logo"></div>
+    <nav>
+      <ul>
+        <li><a href="#becas">Becas disponibles</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#preguntas">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <main>
-  <section id="inicio" class="hero">
-    <div>
-      <p class="eyebrow">Becas educativas</p>
-      <h1>Estudiar no debería <em>depender</em><br>de cuánto tengas.</h1>
-      <p class="lede">Reunimos becas de fundaciones, universidades y organizaciones para que encuentres la que abre tu próxima puerta. Elige una y te llevamos directo a la página de quien la ofrece.</p>
+  <section class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">Convocatoria 2026 — 2027</span>
+      <h1>Becas educativas para <em>transformar</em> tu futuro.</h1>
+      <p class="lede">Conectamos a estudiantes con las mejores oportunidades de financiación académica para universidades, institutos y posgrados.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#becas">Ver becas disponibles</a>
-        <button id="howItWorksBtn" class="btn btn-ghost" type="button">¿Cómo funciona?</button>
+        <a href="#becas" class="btn btn-primary">Ver becas abiertas</a>
+        <a href="#como-funciona" class="btn btn-ghost">Más información</a>
       </div>
     </div>
-    <div class="letter-art" aria-hidden="true">
-      <div class="card back"></div>
-      <div class="card front">
-        <div class="seal-big">Y</div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line short"></div>
+    <div class="hero-art">
+      <div class="letter-art">
+        <div class="card back"></div>
+        <div class="card front">
+          <div class="seal-big">B</div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line short"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -672,514 +397,121 @@
   <section id="becas">
     <div class="section-inner">
       <div class="section-head">
-        <p class="eyebrow">Convocatorias</p>
-        <h2>Becas disponibles</h2>
-        <p style="color:var(--ink-soft); margin-top:10px;">Haz clic en cualquier beca para ir a la página oficial de la convocatoria.</p>
+        <span class="eyebrow">Ofertas activas</span>
+        <h2>Encuentra la beca ideal para ti</h2>
       </div>
 
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all" type="button">Todas</button>
-        <button class="filter-btn" data-filter="pregrado" type="button">Pregrado</button>
-        <button class="filter-btn" data-filter="posgrado" type="button">Posgrado</button>
-        <button class="filter-btn" data-filter="nacionales" type="button">Nacionales</button>
-        <button class="filter-btn" data-filter="internacionales" type="button">Internacionales</button>
-      </div>
-
-      <div class="beca-grid" id="becaGrid">
-
-        <div class="beca-card" data-tags="posgrado internacionales">
-          <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-diferentes-areas-universidad-europea-espana" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇪🇸 60%</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">ICETEX · Universidad Europea (España)</p>
-            <h3>Becas para maestrías virtuales</h3>
-            <p class="beca-desc">60% de descuento en la matrícula de maestrías oficiales 100% online, para profesionales colombianos con título de pregrado.</p>
-          </a>
+      <div class="beca-grid">
+        <!-- Beca 1 -->
+        <article class="beca-card" id="beca-1">
+          <span class="stamp">100% Cobertura</span>
+          <div class="top-space"></div>
+          <div class="beca-org">Fundación Educación Futura</div>
+          <h3>Beca Excelencia Universitaria</h3>
+          <p>Destinada a estudiantes de alto rendimiento académico con vulnerabilidad económica. Cubre matrícula completa y estipendio mensual.</p>
+          <div class="beca-deadline">Cierre: 15 de Octubre, 2026</div>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 14 sep 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-diferentes-areas-universidad-europea-espana" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Becas para maestrías virtuales (Universidad Europea)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
+            <span class="cta">
+              Postularme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
-        </div>
+        </article>
 
-        <div class="beca-card" data-tags="posgrado internacionales">
-          <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-de-la-universidad-la-rioja-unir-de-espana" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇪🇸 60%</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">ICETEX · UNIR (España)</p>
-            <h3>Maestrías virtuales UNIR</h3>
-            <p class="beca-desc">60% de la matrícula para maestrías oficiales virtuales en español, con inicio en septiembre de 2026 y duración de 12 meses.</p>
-          </a>
+        <!-- Beca 2 -->
+        <article class="beca-card" id="beca-2">
+          <span class="stamp">80% Cobertura</span>
+          <div class="top-space"></div>
+          <div class="beca-org">Instituto de Tecnología</div>
+          <h3>Beca Talento Digital</h3>
+          <p>Orientada a carreras de programación, ciencia de datos e inteligencia artificial. Incluye equipo portátil y mentoría profesional.</p>
+          <div class="beca-deadline">Cierre: 30 de Noviembre, 2026</div>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 17 sep 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-de-la-universidad-la-rioja-unir-de-espana" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Maestrías virtuales UNIR" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
+            <span class="cta">
+              Postularme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
-        </div>
+        </article>
 
-        <div class="beca-card" data-tags="posgrado internacionales">
-          <a href="https://web.icetex.gov.co/es/-/2026-becas-del-100-doctorado-en-politica-publica-en-el-instituto-tecnologico-y-de-estudios-superiores-de-monterrey" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇲🇽 100%</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">ICETEX · Tec de Monterrey (México)</p>
-            <h3>Doctorado en Política Pública</h3>
-            <p class="beca-desc">Cobertura del 100% de la matrícula para cursar el doctorado presencial, dentro de la alianza ICETEX–Tec de Monterrey.</p>
-          </a>
+        <!-- Beca 3 -->
+        <article class="beca-card" id="beca-3">
+          <span class="stamp">Internacional</span>
+          <div class="top-space"></div>
+          <div class="beca-org">Alianza Iberoamericana</div>
+          <h3>Beca Posgrado e Investigación</h3>
+          <p>Para maestrías y doctorados en universidades de España, México y Colombia. Cobertura de pasajes, alojamiento y matrícula.</p>
+          <div class="beca-deadline">Cierre: 10 de Enero, 2027</div>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 2 oct 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://web.icetex.gov.co/es/-/2026-becas-del-100-doctorado-en-politica-publica-en-el-instituto-tecnologico-y-de-estudios-superiores-de-monterrey" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Doctorado en Política Pública (Tec de Monterrey)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
+            <span class="cta">
+              Postularme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
-        </div>
+        </article>
 
-        <div class="beca-card" data-tags="posgrado internacionales">
-          <a href="https://web.icetex.gov.co/es/-/becas-maestria-chile-agcid-2027" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇨🇱 100%</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">ICETEX · AGCID (Chile)</p>
-            <h3>Maestrías en universidades chilenas</h3>
-            <p class="beca-desc">Cobertura total de matrícula, arancel y titulación para maestrías acreditadas en Chile, hasta por 24 meses.</p>
-          </a>
+        <!-- Beca 4 (Agregada) -->
+        <article class="beca-card" id="beca-4">
+          <span class="stamp">Técnica</span>
+          <div class="top-space"></div>
+          <div class="beca-org">Red de Formación Profesional</div>
+          <h3>Beca Técnico y Tecnológico</h3>
+          <p>Dirigida a estudiantes de carreras técnicas intermedias en áreas laborales de alta demanda. Cubre matrícula y materiales de estudio.</p>
+          <div class="beca-deadline">Cierre: 20 de Diciembre, 2026</div>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 9 oct 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://web.icetex.gov.co/es/-/becas-maestria-chile-agcid-2027" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Maestrías en Chile (AGCID)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
+            <span class="cta">
+              Postularme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
-        </div>
+        </article>
 
-        <div class="beca-card" data-tags="posgrado internacionales">
-          <a href="https://web.icetex.gov.co/es/-/descuentos-maestrias-university-salford" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇬🇧 £5.000</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">ICETEX · University of Salford (Reino Unido)</p>
-            <h3>Descuentos en maestrías</h3>
-            <p class="beca-desc">Reducciones de £5.000 en la matrícula para diez estudiantes colombianos, y una beca completa para el mayor puntaje.</p>
-          </a>
+        <!-- Beca 5 (Agregada) -->
+        <article class="beca-card" id="beca-5">
+          <span class="stamp">Liderazgo</span>
+          <div class="top-space"></div>
+          <div class="beca-org">Fondo Impacto Social</div>
+          <h3>Beca Liderazgo y Comunidad</h3>
+          <p>Diseñada para jóvenes con trayectoria en proyectos de desarrollo comunitario, trabajo voluntario y gestión ambiental o cultural.</p>
+          <div class="beca-deadline">Cierre: 05 de Febrero, 2027</div>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 26 feb 2027</p>
-            <div class="beca-actions-row">
-              <a href="https://web.icetex.gov.co/es/-/descuentos-maestrias-university-salford" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Descuentos en maestrías Salford (Reino Unido)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
+            <span class="cta">
+              Postularme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
-        </div>
+        </article>
 
-        <div class="beca-card" data-tags="pregrado nacionales">
-          <a href="https://web.icetex.gov.co/calendario-de-pregrado" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇨🇴 Crédito</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pre">Pregrado</span>
-              <span class="badge badge-nac">Nacional</span>
-            </div>
-            <p class="beca-org">ICETEX (Colombia)</p>
-            <h3>Crédito educativo de pregrado</h3>
-            <p class="beca-desc">Líneas de crédito condonable para pregrado en Colombia: Plan de Apoyo y Bienestar, Talento STEM y Ciencias de la Salud.</p>
-          </a>
+        <!-- Beca 6 (Agregada) -->
+        <article class="beca-card" id="beca-6">
+          <span class="stamp">Intercambio</span>
+          <div class="top-space"></div>
+          <div class="beca-org">Programa Global Student</div>
+          <h3>Beca Movilidad e Intercambio</h3>
+          <p>Financiamiento para estancias cortas o un semestre académico en instituciones aliadas en el exterior. Incluye seguro y manutención.</p>
+          <div class="beca-deadline">Cierre: 28 de Febrero, 2027</div>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 15 oct 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://web.icetex.gov.co/calendario-de-pregrado" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Créditos de pregrado ICETEX" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
+            <span class="cta">
+              Postularme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
-        </div>
-
-        <div class="beca-card" data-tags="pregrado nacionales">
-          <a href="https://aspirantes.uniandes.edu.co/es/pregrado/servicios-financieros" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🎓 95%</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pre">Pregrado</span>
-              <span class="badge badge-nac">Nacional</span>
-            </div>
-            <p class="beca-org">Universidad de los Andes</p>
-            <h3>Beca Quiero Estudiar</h3>
-            <p class="beca-desc">Cubre hasta el 95% de la matrícula de cualquier pregrado para bachilleres colombianos de 16 a 21 años con excelente desempeño.</p>
-          </a>
-          <div class="beca-meta">
-            <p class="beca-deadline">📅 Inscripciones hasta 7 dic 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://aspirantes.uniandes.edu.co/es/pregrado/servicios-financieros" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Beca Quiero Estudiar (UniAndes)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="beca-card" data-tags="pregrado posgrado nacionales">
-          <a href="https://www.mineducacion.gov.co/portal/micrositios-superior/Becas-SER/Banco-de-Programas-de-Becas/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇨🇴 Variable</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pre">Pregrado</span>
-              <span class="badge badge-nac">Nacional</span>
-            </div>
-            <p class="beca-org">Ministerio de Educación Nacional</p>
-            <h3>Becas SER</h3>
-            <p class="beca-desc">Conecta a donantes con estudiantes de estratos 1, 2 y 3 admitidos en cerca de 80 universidades aliadas en Colombia.</p>
-          </a>
-          <div class="beca-meta">
-            <p class="beca-deadline">📅 Consulta en tu universidad</p>
-            <div class="beca-actions-row">
-              <a href="https://www.mineducacion.gov.co/portal/micrositios-superior/Becas-SER/Banco-de-Programas-de-Becas/" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Becas SER (Ministerio de Educación)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="beca-card" data-tags="posgrado internacionales">
-          <a href="https://www.chevening.org/scholarship/colombia/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇬🇧 100%</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">Chevening · Gobierno del Reino Unido</p>
-            <h3>Beca Chevening</h3>
-            <p class="beca-desc">Financiación integral para cursar cualquier maestría de un año en el Reino Unido: matrícula, manutención y tiquetes.</p>
-          </a>
-          <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 6 oct 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://www.chevening.org/scholarship/colombia/" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Beca Chevening (Reino Unido)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="beca-card" data-tags="posgrado internacionales">
-          <a href="https://fulbright.edu.co/programas/para-colombianos/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇺🇸 Completa</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">Fulbright Colombia</p>
-            <h3>Visiting Scholar / Student Researcher</h3>
-            <p class="beca-desc">Estancias de investigación de 4 a 10 meses en Estados Unidos para doctorandos, investigadores y docentes colombianos.</p>
-          </a>
-          <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 12 oct 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://fulbright.edu.co/programas/para-colombianos/" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Beca Fulbright Colombia (EE.UU.)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="beca-card" data-tags="posgrado internacionales">
-          <a href="https://www.daad.co/es/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇩🇪 Completa</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">DAAD · Universidad de Friburgo (Alemania)</p>
-            <h3>Maestría en Gobernanza Ambiental</h3>
-            <p class="beca-desc">Beca completa para cursar la Maestría en Gobernanza Ambiental (MSc Environmental Governance) en Alemania.</p>
-          </a>
-          <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 15 oct 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://www.daad.co/es/" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Maestría en Gobernanza Ambiental DAAD (Alemania)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        </article>
 
       </div>
     </div>
   </section>
 
-  <section class="about-section" id="quienes-somos">
-    <div class="about-card">
-      <span class="eyebrow">INICIATIVA Y PROPÓSITO</span>
-      <h2>Sobre nosotros</h2>
-      <p>
-        <strong>BecaYá</strong> nace como una iniciativa ciudadana y comunitaria orientada a democratizar el acceso a la información sobre oportunidades educativas en Colombia.
-      </p>
-      <p>
-        Conscientes de que muchos jóvenes pierden la oportunidad de acceder a la educación superior por falta de difusión de las convocatorias, este directorio digital centraliza en un solo lugar las becas, apoyos y convenios ofertados por fundaciones, universidades y entidades públicas y privadas.
-      </p>
-
-      <div class="creator-box">
-        <div class="creator-info">
-          <h3>Liderazgo e iniciativa</h3>
-          <p class="creator-role">Miguel Ariza — Economista & Consejero Local de Juventud de Barranquilla por el Partido MIRA</p>
-          <p>
-            Este proyecto fue concebido e impulsado con el objetivo de brindar herramientas reales de transformación social, desarrollo profesional y acceso a la educación superior para las juventudes del territorio.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div id="welcomeModal" class="modal-overlay" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-labelledby="modalTitle">
-      <button id="closeModalBtn" class="modal-close" type="button" aria-label="Cerrar ventana">&times;</button>
-      <span class="eyebrow">GUÍA RÁPIDA</span>
-      <h2 id="modalTitle">¿Cómo funciona BecaYá?</h2>
-      <p>Te ayudamos a encontrar oportunidades para continuar tus estudios en 3 sencillos pasos:</p>
-      
-      <ul class="modal-steps">
-        <li><strong>1. Explora:</strong> Revisa el catálogo de becas y convocatorias activas.</li>
-        <li><strong>2. Selecciona:</strong> Haz clic en la tarjeta que sea de tu interés.</li>
-        <li><strong>3. Postúlate:</strong> Te redirigiremos de forma directa a la página oficial de la entidad ofertante para que inicies tu proceso.</li>
-      </ul>
-
-      <button id="gotItBtn" class="btn btn-primary modal-btn" type="button">¡Entendido, ver becas!</button>
+  <div class="note-box">
+    <div class="note">
+      <strong>Nota importante:</strong> Recuerda verificar detenidamente los requisitos específicos y adjuntar toda la documentación necesaria antes de la fecha límite de cada convocatoria.
     </div>
   </div>
-
 </main>
 
 <footer>
-  Página creada para compartir información sobre becas educativas. Verifica siempre los datos en la página oficial de cada convocatoria.
+  <p>&copy; 2026 BecaYá. Todos los derechos reservados. Construyendo oportunidades para el talento.</p>
 </footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function(){
-    // --- LÓGICA DEL TEMA OSCURO ---
-    const themeBtn = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      if (themeBtn) themeBtn.classList.add('is-active');
-    }
-
-    if (themeBtn) {
-      themeBtn.addEventListener('click', function(){
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if (isDark) {
-          document.documentElement.removeAttribute('data-theme');
-          localStorage.setItem('theme', 'light');
-          themeBtn.classList.remove('is-active');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-          themeBtn.classList.add('is-active');
-        }
-      });
-    }
-
-    // --- LÓGICA DEL PARLANTE (TEXT-TO-SPEECH) ---
-    const speakerBtn = document.getElementById('speakerToggle');
-
-    if ('speechSynthesis' in window && speakerBtn) {
-      let voces = [];
-      function cargarVoces() {
-        voces = window.speechSynthesis.getVoices();
-      }
-      cargarVoces();
-      if (speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = cargarVoces;
-      }
-
-      speakerBtn.addEventListener('click', function() {
-        if (window.speechSynthesis.speaking) {
-          window.speechSynthesis.cancel();
-          speakerBtn.classList.remove('is-active');
-          return;
-        }
-
-        const texto = "Bienvenido a BecaYá. En esta página reunimos convocatorias y becas educativas de fundaciones, universidades y organizaciones para ayudarte a continuar tus estudios. Explora las opciones disponibles e ingresa directamente a las páginas oficiales de cada convocatoria.";
-
-        const mensaje = new SpeechSynthesisUtterance(texto);
-        const vozEspanol = voces.find(v => v.lang.startsWith('es'));
-        if (vozEspanol) mensaje.voice = vozEspanol;
-        
-        mensaje.lang = 'es-ES';
-        mensaje.rate = 0.95;
-
-        speakerBtn.classList.add('is-active');
-
-        mensaje.onend = function() { speakerBtn.classList.remove('is-active'); };
-        mensaje.onerror = function() { speakerBtn.classList.remove('is-active'); };
-      
-        window.speechSynthesis.speak(mensaje);
-      });
-    } else if (speakerBtn) {
-      speakerBtn.style.display = 'none';
-    }
-
-    // --- LÓGICA DEL MODAL DE BIENVENIDA (SOLO MANUAL) ---
-    const modal = document.getElementById('welcomeModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const gotItBtn = document.getElementById('gotItBtn');
-    const howItWorksBtn = document.getElementById('howItWorksBtn');
-
-    function openModal() {
-      if (modal) {
-        modal.classList.add('is-visible');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeModal() {
-      if (modal) {
-        modal.classList.remove('is-visible');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-    }
-
-    if (howItWorksBtn) {
-      howItWorksBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        openModal();
-      });
-    }
-
-    if (closeModalBtn) {
-      closeModalBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        closeModal();
-      });
-    }
-
-    if (gotItBtn) {
-      gotItBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        closeModal();
-      });
-    }
-
-    if (modal) {
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeModal();
-      });
-    }
-
-    // --- LÓGICA DE FILTROS RÁPIDOS ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const becaCards = document.querySelectorAll('.beca-card');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        filterBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-
-        const filter = this.getAttribute('data-filter');
-
-        becaCards.forEach(card => {
-          const tags = card.getAttribute('data-tags') || '';
-          if (filter === 'all' || tags.includes(filter)) {
-            card.classList.remove('is-hidden');
-          } else {
-            card.classList.add('is-hidden');
-          }
-        });
-      });
-    });
-
-    // --- LÓGICA DE COMPARTIR BECA POR WHATSAPP (CON TINYURL) ---
-    const shareBtns = document.querySelectorAll('.share-btn');
-    shareBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const title = this.getAttribute('data-title');
-        const becayaUrl = 'https://tinyurl.com/BecaYA';
-        
-        const text = `¡Mira esta oportunidad educativa en BecaYá! 🎓\n\n*${title}*\n\nEncuéntrala aquí: ${becayaUrl}`;
-        
-        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
-        window.open(whatsappUrl, '_blank');
-      });
-    });
-  });
-</script>
 
 </body>
 </html>
