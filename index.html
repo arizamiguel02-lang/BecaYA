@@ -590,7 +590,7 @@
       <p class="lede">Reunimos becas de fundaciones, universidades y organizaciones para que encuentres la que abre tu próxima puerta. Elige una y te llevamos directo a la página de quien la ofrece.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#becas">Ver becas disponibles</a>
-        <a class="btn btn-ghost" href="#quienes-somos">Sobre nosotros</a>
+        <button id="howItWorksBtn" class="btn btn-ghost">¿Cómo funciona?</button>
       </div>
     </div>
     <div class="letter-art" aria-hidden="true">
@@ -899,6 +899,7 @@
     const modal = document.getElementById('welcomeModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const gotItBtn = document.getElementById('gotItBtn');
+    const howItWorksBtn = document.getElementById('howItWorksBtn');
 
     function openModal() {
       if (modal) {
@@ -921,6 +922,7 @@
 
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     if (gotItBtn) gotItBtn.addEventListener('click', closeModal);
+    if (howItWorksBtn) howItWorksBtn.addEventListener('click', openModal);
 
     if (modal) {
       modal.addEventListener('click', function(e) {
