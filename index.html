@@ -1451,7 +1451,7 @@
       });
     }
 
-    // --- LÓGICA DE FILTROS RÁPIDOS ---
+    // --- LÓGICA DE FILTROS RÁPIDOS (CORREGIDA) ---
     const filterBtns = document.querySelectorAll('.filter-btn');
     const becaCards = document.querySelectorAll('.beca-card');
 
@@ -1464,8 +1464,10 @@
         const filter = this.getAttribute('data-filter');
 
         becaCards.forEach(card => {
-          const tags = card.getAttribute('data-tags') || '';
-          if (filter === 'all' || tags.includes(filter)) {
+          const tagsAttr = card.getAttribute('data-tags') || '';
+          const cardTags = tagsAttr.split(' ');
+
+          if (filter === 'all' || cardTags.includes(filter)) {
             card.classList.remove('is-hidden');
           } else {
             card.classList.add('is-hidden');
