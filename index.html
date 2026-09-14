@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BecaYá — Becas educativas</title>
 <link rel="icon" type="image/png" href="favicon.png?v=5">
- <meta property="og:type" content="website">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://arizamiguel02-lang.github.io/BecaYA/">
 <meta property="og:title" content="BecaYá — Convocatorias y Becas Educativas">
 <meta property="og:description" content="Reunimos becas de fundaciones, universidades y organizaciones para ayudarte a continuar tus estudios. Encuentra tu oportunidad aquí.">
@@ -413,11 +413,13 @@
  .badge-int { background: #E8F5E9; color: #1B5E20; }
  .badge-pre { background: #FFF3E0; color: #E65100; }
  .badge-pos { background: #F3E5F5; color: #4A148C; }
+ .badge-urgent { background: #FFEBEE; color: #C62828; font-weight: 700; }
 
  html[data-theme="dark"] .badge-nac { background: #1C2D42; color: #90CAF9; }
  html[data-theme="dark"] .badge-int { background: #1B3322; color: #A5D6A7; }
  html[data-theme="dark"] .badge-pre { background: #382512; color: #FFCC80; }
  html[data-theme="dark"] .badge-pos { background: #321A38; color: #CE93D8; }
+ html[data-theme="dark"] .badge-urgent { background: #4A121A; color: #FF8A80; }
 
  .beca-org{
     font-family: 'IBM Plex Mono', monospace;
@@ -692,6 +694,7 @@
             <span class="stamp">🇪🇸 60%</span>
             <div class="top-space"></div>
             <div class="beca-badges">
+              <span class="badge badge-urgent">🔴 ¡Cierra hoy!</span>
               <span class="badge badge-pos">Posgrado</span>
               <span class="badge badge-int">Internacional</span>
             </div>
@@ -700,7 +703,7 @@
             <p class="beca-desc">60% de descuento en la matrícula de maestrías oficiales 100% online, para profesionales colombianos con título de pregrado.</p>
           </a>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 14 sep 2026</p>
+            <p class="beca-deadline" style="color: #C62828; font-weight: 700;">🚨 CIERRA HOY: 14 sep 2026</p>
             <div class="beca-actions-row">
               <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-diferentes-areas-universidad-europea-espana" target="_blank" rel="noopener noreferrer" class="cta">
                 Ver convocatoria
@@ -718,6 +721,7 @@
             <span class="stamp">🇪🇸 60%</span>
             <div class="top-space"></div>
             <div class="beca-badges">
+              <span class="badge badge-urgent">⚠️ Cierra pronto</span>
               <span class="badge badge-pos">Posgrado</span>
               <span class="badge badge-int">Internacional</span>
             </div>
@@ -726,7 +730,7 @@
             <p class="beca-desc">60% de la matrícula para maestrías oficiales virtuales en español, con inicio en septiembre de 2026 y duración de 12 meses.</p>
           </a>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 17 sep 2026</p>
+            <p class="beca-deadline" style="font-weight: 600;">📅 Cierra 17 sep 2026 (en 3 días)</p>
             <div class="beca-actions-row">
               <a href="https://web.icetex.gov.co/es/-/2026-becas-del-60-para-maestrias-virtuales-de-la-universidad-la-rioja-unir-de-espana" target="_blank" rel="noopener noreferrer" class="cta">
                 Ver convocatoria
@@ -1000,36 +1004,11 @@
         </div>
 
         <div class="beca-card" data-tags="posgrado internacional">
-          <a href="https://connect.schwarzmanscholars.org/apply/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-            <span class="stamp">🇨🇳 100%</span>
-            <div class="top-space"></div>
-            <div class="beca-badges">
-              <span class="badge badge-pos">Posgrado</span>
-              <span class="badge badge-int">Internacional</span>
-            </div>
-            <p class="beca-org">Tsinghua University (China)</p>
-            <h3>Schwarzman Scholars</h3>
-            <p class="beca-desc">Programa de maestría de 1 año en Asuntos Globales totalmente financiado en la Universidad de Tsinghua en Pekín.</p>
-          </a>
-          <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 9 sep 2026</p>
-            <div class="beca-actions-row">
-              <a href="https://connect.schwarzmanscholars.org/apply/" target="_blank" rel="noopener noreferrer" class="cta">
-                Ver convocatoria
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <button class="share-btn" type="button" data-title="Schwarzman Scholars (Tsinghua University)" title="Compartir por WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="beca-card" data-tags="posgrado internacional">
           <a href="https://udima.co/beca/alcaldia-de-cucuta" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
             <span class="stamp">🇪🇸 Hasta 35%</span>
             <div class="top-space"></div>
             <div class="beca-badges">
+              <span class="badge badge-urgent">⚠️ Cierra pronto</span>
               <span class="badge badge-pos">Posgrado</span>
               <span class="badge badge-int">Internacional</span>
             </div>
@@ -1038,7 +1017,7 @@
             <p class="beca-desc">Descuentos de hasta el 35% en la matrícula de posgrados virtuales para profesores en ejercicio del municipio de Cúcuta.</p>
           </a>
           <div class="beca-meta">
-            <p class="beca-deadline">📅 Cierra 15 sep 2026</p>
+            <p class="beca-deadline" style="font-weight: 600;">📅 Cierra 15 sep 2026 (Mañana)</p>
             <div class="beca-actions-row">
               <a href="https://udima.co/beca/alcaldia-de-cucuta" target="_blank" rel="noopener noreferrer" class="cta">
                 Ver convocatoria
@@ -1376,7 +1355,7 @@
       speakerBtn.style.display = 'none';
     }
 
-    // --- LÓGICA DEL MODAL DE BIENVENIDA (SOLO MANUAL) ---
+    // --- LÓGICA DEL MODAL DE BIENVENIDA ---
     const modal = document.getElementById('welcomeModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const gotItBtn = document.getElementById('gotItBtn');
@@ -1450,7 +1429,7 @@
       });
     });
 
-    // --- LÓGICA DE COMPARTIR BECA POR WHATSAPP (CON TINYURL) ---
+    // --- LÓGICA DE COMPARTIR BECA POR WHATSAPP ---
     const shareBtns = document.querySelectorAll('.share-btn');
     shareBtns.forEach(btn => {
       btn.addEventListener('click', function(e) {
